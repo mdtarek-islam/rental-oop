@@ -1,0 +1,62 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 590" width="960" height="590" role="img" aria-labelledby="t d">
+  <title id="t">RentalOOP architecture</title>
+  <desc id="d">main.py menu calls RentalShop, which uses Car subclasses and Customer subclasses. Both feed the bill output.</desc>
+  <style>
+    text { font-family: -apple-system, "Segoe UI", Helvetica, Arial, sans-serif; fill: #e6edf3; font-size: 13px; }
+    .h { font-size: 15px; font-weight: 600; }
+    .s { fill: #8b949e; font-size: 12px; }
+    .g { fill: #3fb950; }
+    .node { fill: #161b22; stroke: #30363d; stroke-width: 1; }
+    .out { fill: #161b22; stroke: #3fb950; stroke-width: 1; }
+    .focus { fill: #161b22; stroke: #58a6ff; stroke-width: 1; }
+    .edge { fill: none; stroke: #58a6ff; stroke-width: 2; stroke-dasharray: 8 8; animation: flow 1.6s linear infinite; }
+    .edge.green { stroke: #3fb950; }
+    .e2 { animation-delay: 0.4s; }
+    .e3 { animation-delay: 0.8s; }
+    .e4 { animation-delay: 1.2s; }
+    @keyframes flow { to { stroke-dashoffset: -16; } }
+    @media (prefers-reduced-motion: reduce) { .edge { animation: none; } }
+  </style>
+  <defs>
+    <marker id="ab" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0 0 L10 5 L0 10 z" fill="#58a6ff"/></marker>
+    <marker id="ag" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0 0 L10 5 L0 10 z" fill="#3fb950"/></marker>
+  </defs>
+  <rect width="960" height="590" fill="#0d1117"/>
+
+  <rect class="node" x="340" y="30" width="280" height="60" rx="6"/>
+  <text class="h" x="480" y="56" text-anchor="middle">main.py</text>
+  <text class="s" x="480" y="76" text-anchor="middle">menu: rent, view, return, loyalty, exit</text>
+
+  <rect class="focus" x="200" y="140" width="560" height="96" rx="6"/>
+  <text class="h" x="480" y="166" text-anchor="middle">rental_shops.py: RentalShop</text>
+  <text class="s" x="480" y="188" text-anchor="middle">stock, handout_car, is_returnable, get_rate, get_price</text>
+  <text class="s" x="480" y="210" text-anchor="middle">upgrade_customer, downgrade_vip_customer</text>
+
+  <rect class="node" x="60" y="310" width="380" height="130" rx="6"/>
+  <text class="h" x="80" y="336">cars.py: Car</text>
+  <text class="s" x="80" y="358">rates: below 7 days, 7 days or more, VIP (GBP per day)</text>
+  <text x="80" y="384">Hatchback  30 / 25 / 20</text>
+  <text x="80" y="406">Sedan  50 / 40 / 35</text>
+  <text x="80" y="428">SUV  100 / 90 / 80</text>
+
+  <rect class="node" x="520" y="310" width="380" height="130" rx="6"/>
+  <text class="h" x="540" y="336">customer.py: Customer</text>
+  <text class="s" x="540" y="358">one car per customer, is_vip() returns False</text>
+  <text x="540" y="384">VIP(Customer)</text>
+  <text class="s" x="540" y="406">is_vip() returns True, flat VIP rate</text>
+  <text class="s" x="540" y="428">car_details copied on upgrade or downgrade</text>
+
+  <rect class="out" x="340" y="490" width="280" height="60" rx="6"/>
+  <text class="h g" x="480" y="516" text-anchor="middle">Bill output</text>
+  <text class="s" x="480" y="536" text-anchor="middle">rate x days = amount to pay (GBP)</text>
+
+  <path class="edge" d="M480 90 V140" marker-end="url(#ab)"/>
+  <path class="edge e2" d="M300 236 V310" marker-end="url(#ab)"/>
+  <path class="edge e3" d="M660 236 V310" marker-end="url(#ab)"/>
+  <path class="edge green e4" d="M250 440 V465 H400 V490" marker-end="url(#ag)"/>
+  <path class="edge green e4" d="M710 440 V465 H560 V490" marker-end="url(#ag)"/>
+
+  <text class="s" x="310" y="278">stock and rates</text>
+  <text class="s" x="670" y="278">status flag</text>
+  <text class="s" x="480" y="578" text-anchor="middle">The bill uses the customer status at return time (PDF section 4.3).</text>
+</svg>
