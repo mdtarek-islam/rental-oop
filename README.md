@@ -47,11 +47,11 @@ The second diagram traces one rental and its return, and shows how the rate depe
 - Join or leave the loyalty programme. The rented car moves to the new account.
 - Class hierarchy: `Hatchback`, `Sedan` and `SUV` extend `Car`. `VIP` extends `Customer` and overrides `is_vip()`.
 
-### Engineering findings
+### Engineering notes
 
 - All 22 PDF requirements are met. See [REQUIREMENTS.md](./REQUIREMENTS.md) for the traceability table.
 - 45 tests pass with pytest.
-- Five bugs were fixed in 2026:
+- Five bugs were fixed:
   1. `add_to_stock` stored one shared car instance. It now creates a new car each time.
   2. Zero or negative rental days gave a zero or negative bill. Input now needs 1 or more.
   3. Upgrade and downgrade shared one details dictionary between accounts. Each account now holds a copy.
@@ -99,4 +99,4 @@ Released under the MIT licence. See [LICENSE](./LICENSE). Raise bugs and request
 
 ## Maintenance status
 
-Experimental: the repository is held back from public release while the work is checked.
+Maintained: the 45 tests pass on main and `python main.py` runs from a clean clone.
